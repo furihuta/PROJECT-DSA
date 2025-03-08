@@ -29,6 +29,8 @@ void heapify(vector<int>& arr, int n, int i) {
 void heapSort(vector<int>& arr) {
     int n = arr.size();
 
+    if(n == 0 || n == 1) return;
+    
     for (int i = n / 2 - 1; i >= 0; i--)
         heapify(arr, n, i);
 
