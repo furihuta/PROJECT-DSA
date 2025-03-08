@@ -9,6 +9,91 @@ using namespace std;
 // Biến đếm số lần so sánh
 long long comp_count = 0;
 
+int partition(vetor<int>& arr, int low, int high) {
+	swap(arr[low], arr[(low + high) / 2]);  //avoid worst case
+	int pivot = arr[low];
+	int i = low, j = high;
+	
+	while (i <= j) {
+		while (arr[i] < pivot) {
+			i++;
+		}
+		while (arr[j] > pivot) {
+			j--;
+		}
+		if (i <= j) { 
+			swap(arr[i++], arr[j--]);
+		}
+	}
+	
+	return j;	//return pivot position
+}
+
+void quick_sort(vector<int>& arr, int low, int high) {
+	if (low < high) {
+		int pivot = partition(arr, low, high);
+		quick_sort(arr, low, pivot);
+		quick_sort(arr, pivot + 1, high);
+	}
+}
+
+void merge(vector<int>& arr, int leftside[], int left, int rightside[], int right) {
+	int i = 0;	//left array index
+	int j = 0;	//right array index
+	int h = 0;	//main array index
+	
+	//check if both left and right side arrays are not empty
+	while(i < left && j < right) {
+		
+		//choose which is smaller then put it in main array
+		if (leftside[i] < rightside[j]) {
+			array[h++] = leftside[i++];
+		}
+		else {
+			array[h++] = rightside[j++];
+		}
+	}
+	
+	//check if left side array have remaining elements
+	while(i < left) {
+		array[h++] = leftside[i++];
+	}
+	
+	//check if right side array have remaining elements
+	while(j < right) {
+		array[h++] = rightside[j++];
+	}
+}
+
+void merge_sort(vector<int>& arr, int size) {
+	//stop when array has only one element or empty
+	if (size <= 1) {
+		return;
+	}
+	
+	int left = size / 2;
+	int right = size - left;
+	
+	//copy left and right side array
+	vector<int> leftside;
+	for (int i = 0; i < left; i++) {
+		leftside.push_back(arr[i]);
+	}
+	vector<int> rightside;
+	for (int i = left; i < right; i++) {
+		rightside.push_back(arr[i]);
+	}
+	
+	//self recursively call and merge
+	MergeSort(leftside, left);
+	MergeSort(rightside, right);
+	merge(arr, leftside, left, rightside, right);
+	
+	//free memory
+	delete[] leftside;
+	delete[] rightside;
+}
+
 void heapify(vector<int>& arr, int n, int i) {
     int largest = i;
     int left = 2 * i + 1;
