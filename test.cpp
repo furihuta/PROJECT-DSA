@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
-
+//ey thay toi
+//fagfwqgqwg
 using namespace std;
 //see me?
 // My name is Van
@@ -20,7 +21,7 @@ void bubble_sort(vector<int>& arr) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr[j], arr[j + 1]);
                 swapped = true;
-            }saas
+            }
         }
         
         if (swapped == false)
