@@ -3,7 +3,9 @@
 #include <chrono>
 
 using namespace std;
-
+//see me?
+// My name is Van
+//do you see me
 // Biến đếm số lần so sánh
 long long comp_count = 0;
 
