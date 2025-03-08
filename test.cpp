@@ -20,7 +20,7 @@ void bubble_sort(vector<int>& arr) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr[j], arr[j + 1]);
                 swapped = true;
-            }
+            }saas
         }
         
         if (swapped == false)
