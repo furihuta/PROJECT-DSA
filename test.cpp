@@ -3,10 +3,6 @@
 #include <chrono>
 
 using namespace std;
-//see me?
-// My name is Van
-//do you see me
-// Biến đếm số lần so sánh
 long long comp_count = 0;
 
 int partition(vetor<int>& arr, int low, int high) {
@@ -42,10 +38,7 @@ void merge(vector<int>& arr, int leftside[], int left, int rightside[], int righ
 	int j = 0;	//right array index
 	int h = 0;	//main array index
 	
-	//check if both left and right side arrays are not empty
-	while(i < left && j < right) {
-		
-		//choose which is smaller then put it in main array
+	//check if both left and right side arrays are not empty 
 		if (leftside[i] < rightside[j]) {
 			array[h++] = leftside[i++];
 		}
